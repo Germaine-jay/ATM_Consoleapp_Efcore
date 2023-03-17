@@ -22,8 +22,8 @@
 * Copy your DataBase connection string and paste it in the AtmDbContextFactory class.
 
 ## Default Customers
-![default customer table](Users/user/Pictures/tablepic.jpg)
-![default accounts table](Users/user/Pictures/tablepic2.jpg)
+![default customer table](../Pictures/tablepic.jpg)
+![default accounts table](../Pictures/tablepic2.jpg)
 
 ## Note
 * Change your pin from the default pin carrying out your first transaction
