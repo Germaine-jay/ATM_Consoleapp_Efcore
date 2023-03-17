@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ATM.BLL.Implementations;
+
 
 namespace ATM.UI.Forms
 {
-    internal class CheckBalance
+    public class CheckBalance: UserAuthService
     {
+        public static void Checkbalance()
+        {
+            Console.WriteLine($"Your Balance is #{Balance}");
+        }
     }
 }

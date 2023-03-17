@@ -15,7 +15,7 @@ namespace ATM.DATA.Database
         public AtmDbContext CreateDbContext(string[] args)
         {
             var OptionBuilder = new DbContextOptionsBuilder<AtmDbContext>();
-            var ConnectionString = @"Data Source=GERMANE-PC\SQLEXPRESS;Initial Catalog=EFcoreAtmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            var ConnectionString = @"Data Source=.;Initial Catalog=EFcoreAtmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             OptionBuilder.UseSqlServer(ConnectionString);
             return new AtmDbContext(OptionBuilder.Options);
         }

@@ -43,7 +43,7 @@ namespace ATM.UI.Views
             Console.WriteLine("\tSELECT TRANSACTION OPTION\n");
             Console.WriteLine(" =>1. Withdraw                  =>2. Transfer \n\n");
             Console.WriteLine(" =>3. Deposit                   =>4. Recharge\n\n");
-            Console.WriteLine(" =>5. Check Balance");
+            Console.WriteLine(" =>5. Balance Enquiry");
 
             bool Validate = true;
             
