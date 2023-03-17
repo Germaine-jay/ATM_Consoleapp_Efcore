@@ -42,7 +42,8 @@ namespace ATM.UI.Views
         {
             Console.WriteLine("\tSELECT TRANSACTION OPTION\n");
             Console.WriteLine(" =>1. Withdraw                  =>2. Transfer \n\n");
-            Console.WriteLine(" =>3. Deposit                   =>4. Recharge ");
+            Console.WriteLine(" =>3. Deposit                   =>4. Recharge\n\n");
+            Console.WriteLine(" =>5. Check Balance");
 
             bool Validate = true;
             
@@ -71,6 +72,11 @@ namespace ATM.UI.Views
                     RechargeForm.Rechargeform();
                     ContinueOption();
 
+                    break;
+                case "5": 
+                    Console.Clear();
+                    CheckBalance.Checkbalance();
+                    ContinueOption();
                     break;
 
                 default:
