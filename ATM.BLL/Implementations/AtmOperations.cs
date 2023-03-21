@@ -6,18 +6,15 @@ using System;
 
 namespace ATM.BLL.Implementations
 {    
-    public class AtmOperations : IAtmOperations
+    public class AtmOperations : UserAuthService, IAtmOperations
     {
-        public static long AccountBalance = UserAuthService.Balance;
-        public static int AccountNumber = UserAuthService.Account;
-
 
         protected static List<Transaction> AllTransactions = new List<Transaction>();
         public string TransactionOperation(long amount, string discription, string type, DateTime date)
         {
             
-            var Balance = AccountBalance - amount;
-            var output = new UserService().SetBalance(AccountNumber, Balance);
+            var estbalance = Balance - amount;
+            var output = new UserService().SetBalance(Account, estbalance);
 
             if(output== "Successful")
             {
@@ -33,8 +30,8 @@ namespace ATM.BLL.Implementations
         public string DepositTransactionOperation(long amount, string discription, string type, DateTime date)
         {
             
-            var Balance = AccountBalance + amount;
-            var output = new UserService().SetBalance(AccountNumber, Balance);
+            var estbalance = Balance + amount;
+            var output = new UserService().SetBalance(Account, estbalance);
             if (output == "Successful")
             {
                 var Transac = new Transaction(amount, discription, type, date);
@@ -50,8 +47,8 @@ namespace ATM.BLL.Implementations
         public string TransferTransactionOperation(long amount, int account, string discription, string type, DateTime date)
         {
             
-            var Balance = AccountBalance - amount;
-            var output = new UserService().SetBalance(AccountNumber, Balance);
+            var estbalance = Balance - amount;
+            var output = new UserService().SetBalance(Account, estbalance);
             if(output == "Successful")
             {
                 var data = GetData.UserQuaery().SingleOrDefault(u => u.Account.AccountNumber == account);
