@@ -11,8 +11,7 @@ namespace ATM.BLL.Implementations
 
         protected static List<Transaction> AllTransactions = new List<Transaction>();
         public string TransactionOperation(long amount, string discription, string type, DateTime date)
-        {
-            
+        {         
             var estbalance = Balance - amount;
             var output = new UserService().SetBalance(Account, estbalance);
 
@@ -22,11 +21,10 @@ namespace ATM.BLL.Implementations
                 var Transac = new Transaction(-amount, discription, type, date);
                 AllTransactions.Add(Transac);
             }
-
-            return $"{discription} of #{amount} UnSuccessful";
-
-            
+            return $"{discription} of #{amount} UnSuccessful";          
         }
+
+
         public string DepositTransactionOperation(long amount, string discription, string type, DateTime date)
         {
             
@@ -39,9 +37,7 @@ namespace ATM.BLL.Implementations
 
                 return $"{discription} of #{amount} Successful";
             }
-            return $"{discription} of #{amount} Unuccessful";
-
-            
+            return $"{discription} of #{amount} Unuccessful";         
         }
 
         public string TransferTransactionOperation(long amount, int account, string discription, string type, DateTime date)
@@ -59,7 +55,6 @@ namespace ATM.BLL.Implementations
 
                 return $"{discription} of #{amount} to {data.FirstName} {data.LastName} Successful";
             }
-
             return $"{discription} of #{amount} Unuccessful";
           
         }

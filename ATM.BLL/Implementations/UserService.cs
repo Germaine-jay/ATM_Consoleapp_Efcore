@@ -8,7 +8,7 @@ namespace ATM.BLL.Implementations
     {
         public string SetBalance(int accountnumber, long balance)
         {
-            var querydata = GetData.UserQuaery().SingleOrDefault(u => u.Account.AccountNumber == accountnumber);
+            var querydata = GetData.UserQuaery()?.SingleOrDefault(u => u.Account.AccountNumber == accountnumber);
             querydata.Account.AccountBalance = balance;
 
             var msg = GetData._dbContext.SaveChanges() > 0 ? "Successful" : "Failed";

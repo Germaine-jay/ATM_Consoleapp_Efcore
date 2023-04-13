@@ -10,6 +10,10 @@ namespace ATM.DATA.DataAccess
     public class GetData
     {
         public static AtmDbContext _dbContext;
+        public GetData(AtmDbContext Context)
+        {
+            _dbContext = Context;
+        }
 
         public static IEnumerable <Customer> UserQuaery()
         {
@@ -18,7 +22,6 @@ namespace ATM.DATA.DataAccess
             _dbContext = dbcontext;
 
             IQueryable<Customer> userQuery = dbcontext.Customers.Include(u => u.Account);
-
             return userQuery;
         }
     }

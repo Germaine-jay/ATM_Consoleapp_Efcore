@@ -7,25 +7,29 @@ namespace ATM.BLL.Implementations
 {
     public class AtmServices : IAtmServices
     {
-        AtmOperations atmOperations = new AtmOperations();
+        private readonly AtmOperations _atmOperations;
+        public AtmServices(AtmOperations atmOperations)
+        {
+            _atmOperations = atmOperations;
+        }
         public void Deposit(long amount, int account, string discription)
         {
-            atmOperations.DepositTransactionOperation(amount, discription, "Deposit", DateTime.Now);
+            _atmOperations.DepositTransactionOperation(amount, discription, "Deposit", DateTime.Now);
         }
 
         public void Recharge(long amount, string biller)
         {
-            atmOperations.TransactionOperation(amount, biller, "Recharge", DateTime.Now);
+            _atmOperations.TransactionOperation(amount, biller, "Recharge", DateTime.Now);
         }
 
         public void Transfer(long amount, int account, string discription)
         {
-            atmOperations.TransferTransactionOperation(amount, account,discription, "Transfer", DateTime.Now);
+            _atmOperations.TransferTransactionOperation(amount, account,discription, "Transfer", DateTime.Now);
         }
       
         public void Withdrawal(long amount, string discription)
         {
-            atmOperations.TransactionOperation(amount, discription, "Withdraw", DateTime.Now);
+            _atmOperations.TransactionOperation(amount, discription, "Withdraw", DateTime.Now);
         }
     }
 

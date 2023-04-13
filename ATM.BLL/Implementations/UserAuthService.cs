@@ -28,16 +28,15 @@ namespace ATM.BLL.Implementations
 
         public bool ResetPin(int? accountnumber, string? oldpin, string newpin)
         {
-            bool output = false;
             var data = GetData.UserQuaery().SingleOrDefault(u => u.Account.AccountNumber == accountnumber && u.Account.Accountpin == oldpin);
           
             if (data != null)
             {
                 data.Account.Accountpin = newpin;
-                var response = GetData._dbContext.SaveChanges() > 0 ? output = true : output = false;
+                var response = GetData._dbContext.SaveChanges() > 0 ? true : false;
                 return response;
             }          
-            return output;
+            return false;
         }
     }
 }
